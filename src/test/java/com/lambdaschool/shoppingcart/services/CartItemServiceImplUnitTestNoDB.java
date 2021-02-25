@@ -143,11 +143,34 @@ public class CartItemServiceImplUnitTestNoDB
             "add");
 
         assertEquals( 2, rtnItem.getQuantity());
-        
+
     }
 
     @Test
     public void removeFromCart()
     {
+        CartItem cartItem = new CartItem();
+        cartItem.setUser(userList.get(0));
+        cartItem.setQuantity(1);
+        cartItem.setComments("add");
+        cartItem.setProduct(productList.get(0));
+
+        Mockito.when(userrepos.findById(10L))
+            .thenReturn(Optional.of(userList.get(0)));
+
+        Mockito.when(prodrepos.findById(1L))
+            .thenReturn(Optional.of(productList.get(0)));
+
+        Mockito.when(cartitemrepos.findById(any(CartItemId.class)))
+            .thenReturn(Optional.of(cartItem));
+
+        Mockito.when(cartitemrepos.save(any(CartItem.class))).thenReturn(cartItem);
+
+        CartItem rtnItem = cartItemService.removeFromCart(10,
+            1,
+            "remove");
+
+        assertEquals( null, rtnItem);
+        
     }
 }
