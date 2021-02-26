@@ -9,7 +9,6 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Mock;
 import static org.mockito.ArgumentMatchers.any;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
@@ -41,7 +40,7 @@ public class CartItemServiceImplUnitTestNoDB
 
     private List<Product> productList;
     private List<User> userList;
-    private List<CartItem> cartItemList;
+
 
     @Before
     public void setUp() throws Exception
@@ -171,6 +170,6 @@ public class CartItemServiceImplUnitTestNoDB
             "remove");
 
         assertEquals( null, rtnItem);
-        
+
     }
 }

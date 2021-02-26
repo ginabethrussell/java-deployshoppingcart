@@ -35,6 +35,17 @@ public class CartItem
 
     }
 
+    @Override
+    public String toString()
+    {
+        return "CartItem{" +
+            "user=" + user +
+            ", product=" + product +
+            ", quantity=" + quantity +
+            ", comments='" + comments + '\'' +
+            '}';
+    }
+
     public CartItem(
         User user,
         Product product,
